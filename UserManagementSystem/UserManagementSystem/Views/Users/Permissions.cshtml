@@ -1,0 +1,40 @@
+﻿@model UserManagementSystem.Models.Users
+
+@{
+    ViewData["Title"] = "Permissions";
+}
+
+<h3 style="margin-top: 10px">Assign Permission</h3>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Permissions">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="FirstName" />
+            <input type="hidden" asp-for="LastName" />
+            <input type="hidden" asp-for="Username" />
+            <input type="hidden" asp-for="Password" />
+            <input type="hidden" asp-for="Email" />
+            <input type="hidden" asp-for="Status" />
+            <input type="hidden" asp-for="CreatedDateTime" />
+            <div class="form-group">
+                <label asp-for="Code" class="control-label"></label>
+                <input asp-for="Code" type="checkbox" class="form-check-input"/>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                 <input asp-for="Description" type="checkbox" class="form-check-input"/>
+            </div>
+            <div class="form-group" style="margin-top: 10px">
+                <input asp-action="Permissions" type="submit" value="Save" class="btn btn-dark" />
+                <a asp-controller="Users" asp-action="Users" class="btn btn-secondary" style="width:150px">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
